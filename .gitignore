@@ -37,7 +37,6 @@ logs/
 # Data files (will be handled by Git LFS)
 data/raw/
 data/processed/
-*.csv
 *.wav
 *.mp3
 *.npy

@@ -29,10 +29,6 @@ logs/
 *.ipynb
 
 # Model files (will be handled by Git LFS)
-*.h5
-*.pkl
-*.joblib
-*.model
 
 # Data files (will be handled by Git LFS)
 data/raw/

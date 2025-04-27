@@ -26,7 +26,7 @@ logger = logging.getLogger(__name__)
 ENV = os.getenv('FLASK_ENV', 'development')
 DEBUG = ENV == 'development'
 HOST = '127.0.0.1' if ENV == 'development' else '0.0.0.0'
-PORT = int(os.getenv('PORT', 5000))
+PORT = int(os.getenv('PORT', 10000))
 
 # Initialize Flask app with additional security headers
 app = Flask(__name__)

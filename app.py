@@ -33,7 +33,11 @@ app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 
 # Enable CORS for Next.js frontend
-CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "http://127.0.0.1:3000"]}})
+CORS(app, resources={r"/*": {"origins": [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://heart-disease-predictor-six.vercel.app"
+]}})
 
 # Initialize rate limiter
 limiter = Limiter(

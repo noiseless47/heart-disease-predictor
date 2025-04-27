@@ -54,9 +54,10 @@ interface Prediction {
   analysis_timestamp: string;
 }
 
+const API_URL = process.env.FLASK_API_URL || 'https://heart-disease-predictor-iizp.onrender.com';
+
 export async function POST(request: Request) {
   try {
-    // Get patient_id from the request body
     const data = await request.json();
     const patientId = data.patient_id;
 
@@ -67,9 +68,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Forward the request to the Flask backend
-    // Assuming Flask is running on localhost:10000
-    const flaskResponse = await fetch('http://localhost:10000/predict', {
+    const flaskResponse = await fetch(`${API_URL}/predict`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -86,7 +85,6 @@ export async function POST(request: Request) {
     }
 
     const result: Prediction = await flaskResponse.json();
-    
     return NextResponse.json(result);
   } catch (error) {
     console.error('API route error:', error);
@@ -98,7 +96,6 @@ export async function POST(request: Request) {
 }
 
 export async function GET(request: Request) {
-  // Get patient_id from the URL params
   const { searchParams } = new URL(request.url);
   const patientId = searchParams.get('patient_id');
 
@@ -110,8 +107,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    // Forward the request to the Flask backend
-    const flaskResponse = await fetch(`http://localhost:10000/predict?patient_id=${patientId}`, {
+    const flaskResponse = await fetch(`${API_URL}/predict?patient_id=${patientId}`, {
       method: 'GET',
     });
 
@@ -124,7 +120,6 @@ export async function GET(request: Request) {
     }
 
     const result: Prediction = await flaskResponse.json();
-    
     return NextResponse.json(result);
   } catch (error) {
     console.error('API route error:', error);

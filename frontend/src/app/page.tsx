@@ -50,7 +50,7 @@ export default function Home() {
       const heartEl = document.querySelector('.heart') as HTMLElement
       if (heartEl) heartEl.style.animationDuration = "0.8s, 6s"
 
-      const response = await fetch('http://localhost:5001/predict', {
+      const response = await fetch('http://localhost:10000/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -68,8 +68,8 @@ export async function POST(request: Request) {
     }
 
     // Forward the request to the Flask backend
-    // Assuming Flask is running on localhost:5001
-    const flaskResponse = await fetch('http://localhost:5001/predict', {
+    // Assuming Flask is running on localhost:10000
+    const flaskResponse = await fetch('http://localhost:10000/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ export async function GET(request: Request) {
 
   try {
     // Forward the request to the Flask backend
-    const flaskResponse = await fetch(`http://localhost:5001/predict?patient_id=${patientId}`, {
+    const flaskResponse = await fetch(`http://localhost:10000/predict?patient_id=${patientId}`, {
       method: 'GET',
     });
 

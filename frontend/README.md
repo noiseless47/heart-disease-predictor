@@ -23,7 +23,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-The Flask backend will run on http://localhost:5001
+The Flask backend will run on http://localhost:10000
 
 ### Frontend (Next.js)
 

@@ -31,13 +31,15 @@ PORT = int(os.getenv('PORT', 10000))
 # Initialize Flask app with additional security headers
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+app.config['TIMEOUT'] = 120
 
 # Enable CORS for Next.js frontend
 CORS(app, resources={r"/*": {"origins": [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "https://heart-disease-predictor-six.vercel.app",
-    "https://heart-disease-predictor-kappa.vercel.app"
+    "https://heart-disease-predictor-kappa.vercel.app",
+    "https://*.railway.app"
 ]}})
 
 # Initialize rate limiter

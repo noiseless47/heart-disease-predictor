@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 # Environment configuration
 ENV = os.getenv('FLASK_ENV', 'development')
 DEBUG = ENV == 'development'
-HOST = '127.0.0.1' if ENV == 'development' else '0.0.0.0'
+HOST = '0.0.0.0'  # Always bind to 0.0.0.0 in production
 PORT = int(os.getenv('PORT', 10000))
 
 # Initialize Flask app with additional security headers
@@ -653,7 +653,7 @@ def predict():
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return jsonify({"status": "healthy", "message": "Heart Disease Predictor API is running"}), 200
 
 if __name__ == '__main__':
     app.run(host=HOST, port=PORT, debug=DEBUG)

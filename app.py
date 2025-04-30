@@ -36,7 +36,8 @@ app.config['JSON_SORT_KEYS'] = False
 CORS(app, resources={r"/*": {"origins": [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    "https://heart-disease-predictor-six.vercel.app"
+    "https://heart-disease-predictor-six.vercel.app",
+    "https://heart-disease-predictor-kappa.vercel.app"
 ]}})
 
 # Initialize rate limiter

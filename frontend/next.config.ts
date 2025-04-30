@@ -1,9 +1,9 @@
 import type { NextConfig } from "next";
 
 const isProd = process.env.NODE_ENV === 'production';
-const backendUrl = isProd
+const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL || (isProd
   ? 'https://heart-disease-predictor-iizp.onrender.com'
-  : 'http://localhost:10000';
+  : 'http://localhost:10000');
 
 const nextConfig: NextConfig = {
   /* Config options */
